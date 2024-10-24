@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "austyle"
+version = "0.1.0"
+description = ""
+authors = ["tyler-austin <tyler.e.austin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+yfinance = {extras = ["nospam", "repair"], version = "^0.2.46"}
+eodhd = "^1.0.31"
+bokeh = "^3.6.0"
+plotly = "^5.24.1"
+matplotlib = "^3.9.2"
+mplfinance = "^0.12.10b0"
+mplchart = "^0.0.14"
+bta-lib = "^1.0.0"
+ta-lib = {path = "TA_Lib-0.4.32-cp312-cp312-macosx_11_0_arm64.whl"}
+numpy = "^2.1.2"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
