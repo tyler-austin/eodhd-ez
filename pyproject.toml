@@ -1,27 +1,62 @@
 [tool.poetry]
-name = "austyle"
+name = "eodhd-ez"
 version = "0.1.0"
 description = ""
 authors = ["tyler-austin <tyler.e.austin@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 pandas = "^2.2.3"
-yfinance = {extras = ["nospam", "repair"], version = "^0.2.46"}
-eodhd = "^1.0.31"
 bokeh = "^3.6.0"
-plotly = "^5.24.1"
+eodhd = "^1.0.31"
+plotly = "^6.0.0"
 matplotlib = "^3.9.2"
 mplfinance = "^0.12.10b0"
-mplchart = "^0.0.14"
-bta-lib = "^1.0.0"
-ta-lib = {path = "TA_Lib-0.4.32-cp312-cp312-macosx_11_0_arm64.whl"}
-numpy = "^2.1.2"
+mplchart = "^0.0.21"
+toolz = "^1.0.0"
+inflection = "^0.5.1"
+openpyxl = "^3.1.5"
+backoff = "^2.2.1"
+ratelimit = "^2.2.1"
+python-dotenv = "^1.0.1"
+requests-cache = "^1.2.1"
+colorlog = "^6.9.0"
+
+redis = "^5.2.0"
+gics = "^0.2.1"
+numpy = "^2.2.2"
+datamodel-code-generator = "^0.26.2"
+ta-lib = "^0.6.1"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.1.1"
+poethepoet = "^0.32.2"
+ruff = "^0.9.3"
+
+[tool.ruff]
+include = ["*.py", "*.pyi", "*.ipynb", "**/*.toml"]
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks.lint]
+help = "Check codebase for linting and formatting errors"
+cmd = "ruff check ${path} --config ${config} ${fix}"
+
+[[tool.poe.tasks.lint.args]]
+name = "path"
+help = "Path to the codebase"
+type = "string"
+default = "."
+positional = true
+required = false
+
+[[tool.poe.tasks.lint.args]]
+name = "config"
+help = "Path to the ruff config file"
+options = ["-c", "--config"]
+type = "string"
+default = ".ruff.toml"
+required = false

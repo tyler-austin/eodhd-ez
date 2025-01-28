@@ -1,0 +1,82 @@
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+# Same as Black.
+line-length = 100
+indent-width = 4
+
+# Assume Python 3.11
+target-version = "py311"
+
+[lint]
+select = [
+    "F", # Pyflakes
+    "E4", # Pylint
+    "E7", # PyCodeStyle
+    "E9", # PyDocStyle
+    "I001", # PyLint
+]
+
+ignore = [
+    "E203", # Ignore E203: whitespace before ':'
+    "E231", # Ignore E231: missing whitespace after ','
+    "E266", # Ignore E266: too many leading '#' for block comment
+    "W291", # Ignore W291: trailing whitespace
+    "W293", # Ignore W293: blank line contains whitespace
+    "E303", # Ignore E303: too many blank lines (2)
+    "E501", # Ignore E501: line too long (82 > 79 characters)
+    "E721", # Ignore E721: do not compare types, use 'isinstance()'
+    "E722", # Ignore E722: do not use bare except, specify exception instead
+    "E731", # Ignore E731: do not assign a lambda expression, use a def
+    "E741", # Ignore E741: ambiguous variable name 'l'
+    "W605", # Ignore W605: invalid escape sequence
+    "F405", # Ignore F405: 'foo' may be undefined, or defined from star imports: bar
+    "F403", # Ignore F403: 'from module import *' used; unable to detect undefined names
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
